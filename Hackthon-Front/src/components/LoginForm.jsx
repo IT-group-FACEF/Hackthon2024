@@ -2,11 +2,11 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Flex } from "antd";
 import { login } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState } from "react"; 
 
 const App = () => {
   const navigate = useNavigate();
-  const [buttonHover, setButtonHover] = useState(false);
+  const [buttonHover, setButtonHover] = useState(false); 
 
   const onFinish = async (values) => {
     try {
@@ -26,6 +26,7 @@ const App = () => {
       style={{
         maxWidth: 360,
       }}
+
       onFinish={onFinish}
     >
       <Form.Item
@@ -33,11 +34,11 @@ const App = () => {
         rules={[
           {
             required: true,
-            message: "Por favor insira seu usuário!",
+            message: "Por favor insira seu usuario!",
           },
         ]}
       >
-        <Input prefix={<UserOutlined />} placeholder="Usuário" />
+        <Input prefix={<UserOutlined />} placeholder="Usuario" />
       </Form.Item>
       <Form.Item
         name="password"
@@ -82,34 +83,24 @@ const App = () => {
             color: "#F2E8CF",
           }}
           htmlType="submit"
-          onMouseEnter={() => setButtonHover(true)}
-          onMouseLeave={() => setButtonHover(false)}
+          onMouseEnter={() => setButtonHover(true)} // Muda para hover
+          onMouseLeave={() => setButtonHover(false)} // Retorna ao normal
         >
           Entrar
         </Button>
-        <div style={{ marginTop: "30px", textAlign: "center" }}>
-          <span>Não possui conta?</span>
-          <div style={{ marginTop: "10px" }}>
-            <Button
-              type="link"
-              style={{ color: "#3C5220", fontWeight: "bold" }}
-              onClick={() => navigate("/registerUser")}
-              onMouseOver={(e) => (e.target.style.color = "#567A35")}
-              onMouseOut={(e) => (e.target.style.color = "#3C5220")}
-            >
-              Registre-se como Usuário
-            </Button>
-            <Button
-              type="link"
-              style={{ color: "#3C5220", fontWeight: "bold" }}
-              onClick={() => navigate("/registerCompany")}
-              onMouseOver={(e) => (e.target.style.color = "#567A35")}
-              onMouseOut={(e) => (e.target.style.color = "#3C5220")}
-            >
-              Registre-se como Empresa
-            </Button>
-          </div>
-        </div>
+        <span style={{ display: 'block', marginTop: '30px' }}>
+          Não possui conta?{" "}
+          <span
+            style={{
+              color: "#3C5220",
+              cursor: "pointer",
+            }}
+            onMouseOver={(e) => (e.target.style.color = "#567A35")}
+            onMouseOut={(e) => (e.target.style.color = "#3C5220")}
+          >
+            Registre-se
+          </span>
+        </span>
       </Form.Item>
     </Form>
   );

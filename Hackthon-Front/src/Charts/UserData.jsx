@@ -3,46 +3,113 @@ import React from "react";
 
 const DemoSegmentedLine = () => {
   const data = [
-    { day: "1", value: 3, type: "Lon" },
-    { day: "2", value: 5, type: "Lon" },
-    { day: "3", value: 4, type: "Lon" },
-    { day: "4", value: 6, type: "Lon" },
-    { day: "5", value: 5, type: "Lon" },
-    { day: "6", value: 4, type: "Lon" },
-    { day: "7", value: 3, type: "Lon" },
-    { day: "8", value: 5, type: "Lon" },
-    { day: "9", value: 4, type: "Lon" },
-    { day: "10", value: 3, type: "Bor" },
-    { day: "11", value: 4, type: "Bor" },
-    { day: "12", value: 5, type: "Bor" },
-    { day: "13", value: 3, type: "Bor" },
-    { day: "14", value: 6, type: "Bor" },
-    { day: "15", value: 2, type: "Bor" },
-    { day: "16", value: 4, type: "Bor" },
-    { day: "17", value: 6, type: "Bor" },
-    { day: "18", value: 5, type: "Bor" },
-    { day: "19", value: 3, type: "Bor" },
-    { day: "20", value: 5, type: "Bor" },
-    { day: "21", value: 4, type: "Bor" },
-    { day: "22", value: 1, type: "Bor" },
-    { day: "23", value: 2, type: "Bor" },
-    { day: "24", value: 4, type: "Bor" },
-    { day: "25", value: 3, type: "Bor" },
-    { day: "26", value: 6, type: "Bor" },
-    { day: "27", value: 4, type: "Bor" },
-    { day: "28", value: 5, type: "Bor" },
-    { day: "29", value: 6, type: "Bor" },
-    { day: "30", value: 2, type: "Bor" },
-    { day: "31", value: 5, type: "Bor" },
+    {
+      year: "1991",
+      value: 3,
+      type: "Lon",
+    },
+    {
+      year: "1992",
+      value: 4,
+      type: "Lon",
+    },
+    {
+      year: "1993",
+      value: 3.5,
+      type: "Lon",
+    },
+    {
+      year: "1994",
+      value: 5,
+      type: "Lon",
+    },
+    {
+      year: "1995",
+      value: 4.9,
+      type: "Lon",
+    },
+    {
+      year: "1996",
+      value: 6,
+      type: "Lon",
+    },
+    {
+      year: "1997",
+      value: null,
+      type: "Lon",
+    },
+    {
+      year: "1998",
+      value: null,
+      type: "Lon",
+    },
+    {
+      year: "1999",
+      value: null,
+      type: "Lon",
+    },
+    {
+      year: "1991",
+      value: null,
+      type: "Bor",
+    },
+    {
+      year: "1992",
+      value: null,
+      type: "Bor",
+    },
+    {
+      year: "1993",
+      value: null,
+      type: "Bor",
+    },
+    {
+      year: "1994",
+      value: null,
+      type: "Bor",
+    },
+    {
+      year: "1995",
+      value: null,
+      type: "Bor",
+    },
+    {
+      year: "1996",
+      value: 6,
+      type: "Bor",
+    },
+    {
+      year: "1997",
+      value: 7,
+      type: "Bor",
+    },
+    {
+      year: "1998",
+      value: 9,
+      type: "Bor",
+    },
+    {
+      year: "1999",
+      value: 13,
+      type: "Bor",
+    },
   ];
-
   const config = {
     data,
-    xField: "day",
+    xField: "year",
     yField: "value",
-    color: "#2688FF", 
+    colorField: "type",
+    scale: {
+      color: {
+        range: ["#2688FF", "red"],
+      },
+    },
     style: {
       lineWidth: 2,
+      lineDash: (items) => {
+        const { type } = items[0];
+        return type === "Bor" ? [2, 4] : [0, 0];
+      },
     },
     interaction: {
       tooltip: {
@@ -52,9 +119,9 @@ const DemoSegmentedLine = () => {
             <div key={title}>
               <h4>{title}</h4>
               {list.map((item) => {
-                const { name, value } = item;
+                const { name, value, color } = item;
                 return (
-                  <div key={name}>
+                  <div>
                     <div
                       style={{
                         margin: 0,
@@ -63,6 +130,16 @@ const DemoSegmentedLine = () => {
                       }}
                     >
                       <div>
+                        <span
+                          style={{
+                            display: "inline-block",
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            backgroundColor: color,
+                            marginRight: 6,
+                          }}
+                        ></span>
                         <span>{name}</span>
                       </div>
                       <b>{value}</b>
@@ -76,22 +153,7 @@ const DemoSegmentedLine = () => {
       },
     },
     legend: false,
-    yAxis: {
-      min: 1,
-      max: 6,
-      ticks: [1, 2, 3, 4, 5, 6],
-      title: {
-        text: "Valor", 
-      },
-    },
-    xAxis: {
-      title: {
-        text: "Dias do Mês", 
-      },
-      tickInterval: 1,
-    },
   };
-
   return <Line {...config} />;
 };
 

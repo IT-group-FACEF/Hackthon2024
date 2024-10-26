@@ -13,7 +13,7 @@ const Login = () => {
           <div className="mb-8">Faça Login com sua conta</div>
           <App />
         </div>
-        <div className="hidden md:flex h-[502px] w-full max-w-md p-8 items-center bg-[#567A35] rounded-r-[20px]">
+        <div className="hidden md:flex h-auto w-full max-w-md p-8 items-center bg-[#567A35] rounded-r-[20px]">
           <img
             src={imgLogin}
             alt="Login"

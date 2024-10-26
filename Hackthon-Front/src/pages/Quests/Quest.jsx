@@ -4,16 +4,15 @@ import Sidebar from "../../components/Sidebar";
 import Button from "../../components/Button";
 import { Form, Rate, Typography } from "antd";
 import { FrownOutlined, MehOutlined, SmileOutlined } from "@ant-design/icons";
-import { submitQuestionnaire } from "../../utils/services.jsx";
 
 const { Title } = Typography;
 
 const customIcons = {
-  1: <FrownOutlined style={{ margin: "0 30px" }} />,
-  2: <FrownOutlined style={{ margin: "0 30px" }} />,
-  3: <MehOutlined style={{ margin: "0 30px" }} />,
-  4: <SmileOutlined style={{ margin: "0 30px" }} />,
-  5: <SmileOutlined style={{ margin: "0 30px" }} />,
+  1: <FrownOutlined />,
+  2: <FrownOutlined />,
+  3: <MehOutlined />,
+  4: <SmileOutlined />,
+  5: <SmileOutlined />,
 };
 
 const questions = [
@@ -100,19 +99,13 @@ const questions = [
 ];
 
 const Quests = () => {
-  const onFinish = async (values) => {
+  const onFinish = (values) => {
     console.log("Valores enviados:", values);
-    try {
-      const response = await submitQuestionnaire(values);
-      console.log("Resposta do servidor:", response);
-    } catch (error) {
-      console.error("Erro ao enviar dados:", error);
-    }
   };
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Navbar title={"Questionário"} />
+      <Navbar />
       <Layout>
         <Sidebar />
         <div className="flex justify-center items-center w-full h-full p-10">
@@ -136,23 +129,12 @@ const Quests = () => {
                 ]}
                 style={{ marginBottom: "20px", width: "100%" }}
               >
-                <label
-                  className="text-lg mb-2 text-xl"
-                  style={{ textAlign: "center" }}
-                >
-                  {question}
-                </label>
+                <label className="text-lg mb-2 text-xl">{question}</label>
                 <Rate
                   defaultValue={3}
                   character={({ index = 0 }) => customIcons[index + 1]}
                   className="flex justify-around py-5"
-                  style={{
-                    color: "#3C5220",
-                    fontSize: "24px",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
+                  style={{ color: "#3C5220" }}
                 />
               </Form.Item>
             ))}

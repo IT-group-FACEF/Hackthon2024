@@ -7,12 +7,12 @@ const DemoChangeData = () => {
   React.useEffect(() => {
     setTimeout(() => {
       setData([
-        { type: "Resposta 1", Pessoas: 405 },
-        { type: "Resposta 2", Pessoas: 105 },
-        { type: "Resposta 3", Pessoas: 332 },
-        { type: "Resposta 4", Pessoas: 229 },
-        { type: "Resposta 5", Pessoas: 157 },
-        { type: "Resposta 6", Pessoas: 400 },
+        { type: "Resposta 1", Pessoas: 27 },
+        { type: "Resposta 2", Pessoas: 25 },
+        { type: "Resposta 3", Pessoas: 18 },
+        { type: "Resposta 4", Pessoas: 15 },
+        { type: "Resposta 5", Pessoas: 10 },
+        { type: "Resposta 6", Pessoas: 40 },
       ]);
     }, 1000);
   }, []);

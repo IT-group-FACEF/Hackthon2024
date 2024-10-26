@@ -1,6 +1,9 @@
+import React from "react";
 import { Layout } from "antd";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+import DashboardHeader from "../../components/Header";
+import Content from "../../components/Content";
 import Pizza from "../../Charts/AdmData";
 import Line from "../../Charts/UserData";
 import Card from "../../components/Card";
@@ -8,10 +11,11 @@ import Card from "../../components/Card";
 const DashboardCompany = () => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Navbar title={"Dashboard"} />
+      <Navbar />
       <Layout>
         <Sidebar />
         <Layout style={{ display: "flex" }}>
+          <DashboardHeader />
           <Layout
             style={{
               flexDirection: "row",
@@ -44,30 +48,19 @@ const DashboardCompany = () => {
             style={{ flexDirection: "row", justifyContent: "space-around" }}
           >
             <Card
+              style={{}}
               title={"Metas de Saúde e Programas de Incentivo"}
-              value={[
-                "Aumentar a atividade física diariamente.",
-                "Melhorar a alimentação com mais frutas e vegetais.",
-                "Beber pelo menos 2 litros de água por dia.",
-                "Praticar meditação para reduzir o estresse.",
-                "Dormir de 7 a 8 horas por noite.",
-              ]}
+              value={"teste"}
             />
             <Card
+              style={{}}
               title={"Metas de Saúde e Programas de Incentivo"}
-              value={[
-                "Participar de exames de saúde regulares.",
-                "Evitar o consumo excessivo de açúcar.",
-                "Promover a saúde mental através de atividades sociais.",
-              ]}
+              value={"teste"}
             />
             <Card
+              style={{}}
               title={"Metas de Saúde e Programas de Incentivo"}
-              value={[
-                "Fazer caminhadas de 30 minutos diariamente.",
-                "Reduzir o consumo de alimentos processados.",
-                "Realizar check-ups anuais.",
-              ]}
+              value={"teste"}
             />
           </Layout>
         </Layout>

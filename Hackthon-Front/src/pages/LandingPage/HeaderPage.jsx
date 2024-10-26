@@ -8,10 +8,8 @@ const Header = () => {
   };
 
   return (
-    <div
-      className="flex justify-between items-center px-4 py-2 bg-[#C9D9A7] w-full fixed top-0 z-50"
-      style={{ boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}
-    >
+    <div className="flex justify-between items-center px-4 py-2 bg-[#C9D9A7]">
+      {/* Logo */}
       <div className="flex">
         <a href="/">
           <img className="h-[50px] w-[70px]" src={logo} alt="Logo" />
@@ -19,7 +17,7 @@ const Header = () => {
       </div>
 
       {/* Botões de Âncoras */}
-      <div className="flex space-x-4 flex-row items-center justify-center">
+      <div className="flex space-x-4">
         <Button
           buttonText="Benefícios"
           typeButton="text"
