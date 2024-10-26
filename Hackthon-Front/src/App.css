@@ -1,0 +1,29 @@
+/* :root {
+  --primary-color: #4CAF50;
+  --secondary-color: #ff5722;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --font-size-base: 16px;
+  --font-family-base: 'Arial, sans-serif';
+  --border-radius: 4px;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@100;400;500;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #262626;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
+  .ant-menu-item-selected {
+  color: #c9d9a7;
+  background-color: #567a35;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-layout
+  .ant-layout-sider-zero-width-trigger {
+  background-color: #567a35;
+}
